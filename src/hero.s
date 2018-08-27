@@ -64,7 +64,7 @@
             ;CHECK FLOOR COLLISIONS
             call    checkMapFloor
             cp      #1
-            ret     nz
+            ret     z
                 ld      a, #-1
                 ld      (hero_state), a
         ret
@@ -97,9 +97,9 @@
             call    heroPtrX
             ;CHECK FLOOR COLLISIONS
             call    checkMapFloor
-            cp      #1
-            jr      nz, gravityPunch
-                ld      a, #-1
+            cp      #0
+            jr      z, gravityPunch
+                ld      a, #0
                 ld      (hero_state), a
                 ret
                 ;GRAVITY PUNCH
