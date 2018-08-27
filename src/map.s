@@ -43,3 +43,6 @@
         call    cpct_drawSolidBox_asm
         
     ret
+
+    checkMapFloor::
+    ret

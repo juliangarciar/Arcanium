@@ -1,1 +1,2 @@
 .globl drawMap
+.globl checkMapFloor
