@@ -6,3 +6,4 @@
 .globl jump
 .globl heroPtrX
 .globl heroPtrY
+.globl _sprite_hero11

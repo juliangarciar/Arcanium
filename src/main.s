@@ -9,6 +9,14 @@
 		call 	cpct_disableFirmware_asm	;disable firmware so we can set another options
 		ld 		c, #0 						;load video mode 0 on screen
 		call 	cpct_setVideoMode_asm
+
+        ;ld 		hl, #_sprite_palette
+		;ld 		de, #16
+		;call 	cpct_setPalette_asm
+
+        ld 		l, #16
+		ld 		h, #0
+		call 	cpct_setPALColour_asm
 	ret
 
     isr:

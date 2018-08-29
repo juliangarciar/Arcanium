@@ -2,8 +2,9 @@
     .include "cpctelera.h.s"
     .include "macro.h.s"
     .include "map.h.s"
-
-    defineCharacter hero, 0, 80, 2, 8
+    
+    .globl _sprite_hero11
+    defineCharacter hero, 0, 80, 8, 16
     ;HERO STATES
     ;   0 -> On floor
     ;   1 -> Jumping
@@ -27,11 +28,14 @@
         call    cpct_getScreenPtr_asm
         ex      de, hl
 
-        ld      a, #0x0F    ;BOX COLOR
+        ;ld      a, #0x0F    ;BOX COLOR
+        ld 		hl, #_sprite_hero11
         ld      b, hero_h(ix)    
         ld      c, hero_w(ix)
-
-        call    cpct_drawSolidBox_asm
+        
+        
+        call 	cpct_drawSprite_asm 
+        ;call    cpct_drawSolidBox_asm
     ret
 
     eraseHero::

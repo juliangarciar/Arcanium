@@ -13,3 +13,5 @@
 .globl cpct_scanKeyboard_if_asm
 .globl cpct_setVideoMemoryPage_asm
 .globl cpct_drawCharM0_asm
+.globl cpct_drawSprite_asm
+.globl cpct_setPALColour_asm

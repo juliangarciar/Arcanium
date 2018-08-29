@@ -1,9 +1,9 @@
 .area _DATA
     .include "cpctelera.h.s"
     .include "macro.h.s"
-    defineHorizontalFloor floor0, 0, 108, 10, 4, 0
-    defineHorizontalFloor floor1, 10, 100, 40, 4, 0
-    defineHorizontalFloor floor2, 50, 118, 29, 4, 1
+    defineHorizontalFloor floor0, 0, 108, 10, 40, 0
+    defineHorizontalFloor floor1, 10, 100, 40, 40, 0
+    defineHorizontalFloor floor2, 50, 118, 29, 40, 1
 
 .area _CODE
     drawMap::
@@ -17,7 +17,7 @@
         ex      de, hl
 
         ld      a, #0xFF    ;BOX COLOR
-        ld      b, horizontal_floor_h(iy)
+        ld      b, #4
         ld      c, horizontal_floor_w(iy)
 
         call    cpct_drawSolidBox_asm
