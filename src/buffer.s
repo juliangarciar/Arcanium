@@ -5,7 +5,7 @@
     initVideoMemory::
         ld  hl, #0xC000
         ld  de, #0xC001
-        ld  (hl), #0xF0
+        ld  (hl), #0xFF
         ld  bc, #0x4000
 
         ldir

@@ -3,8 +3,10 @@
     .include "macro.h.s"
     .include "map.h.s"
     
-    .globl _sprite_hero11
-    defineCharacter hero, 0, 80, 8, 16
+    .globl _sprite_Hero
+    .globl _sprite_mask
+
+    defineCharacter hero, 0, 80, 8, 32
     ;HERO STATES
     ;   0 -> On floor
     ;   1 -> Jumping
@@ -28,14 +30,21 @@
         call    cpct_getScreenPtr_asm
         ex      de, hl
 
-        ;ld      a, #0x0F    ;BOX COLOR
-        ld 		hl, #_sprite_hero11
+        ld      a, #0x00  ;BOX COLOR
+        ;ld 		hl, #_sprite_Hero
         ld      b, hero_h(ix)    
         ld      c, hero_w(ix)
-        
-        
-        call 	cpct_drawSprite_asm 
-        ;call    cpct_drawSolidBox_asm
+
+        ;push    bc
+        ;pop     ix
+        ;
+        ;ld      hl, #_sprite_mask
+        ;ld      bc, #_sprite_Hero
+        ;
+        ;call    cpct_drawSpriteMaskedAlignedTable_asm
+        ;call    cpct_drawSpriteMasked 
+        ;call 	cpct_drawSprite_asm 
+        call    cpct_drawSolidBox_asm
     ret
 
     eraseHero::
@@ -47,7 +56,7 @@
         call    cpct_getScreenPtr_asm
         ex      de, hl
 
-        ld      a, #0xF0    ;BOX COLOR
+        ld      a, #0xFF    ;BOX COLOR
         ld      b, hero_h(ix)    
         ld      c, hero_w(ix)
 
